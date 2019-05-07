@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "disruptionnumber": {
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+        }
+    }
+}

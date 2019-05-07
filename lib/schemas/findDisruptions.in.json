@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "ESCALATOR",
+                    "ELEVATOR"
+                ],
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "default": [
+                "ESCALATOR",
+                "ELEVATOR"
+            ]
+        },
+        "equipmentnumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+        },
+        "stationnumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+        }
+    }
+}

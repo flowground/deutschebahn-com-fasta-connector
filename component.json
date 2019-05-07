@@ -1,0 +1,124 @@
+{
+    "title": "FaSta-Station_Facilities_Status",
+    "description": "A RESTful webservice to retrieve data about the operational state of public elevators and escalators in german railway stations operated by DB Station&Service AG. \nNote: Production and sandbox environments use the same production backend server. ",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/deutschebahn.com/fasta/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.deutschebahn.com/fasta/v1",
+                    "http://api.deutschebahn.com/fasta/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "UserSecurity": {
+                "label": "Authorization (UserSecurity)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "findDisruptions": {
+            "main": "./lib/actions/findDisruptions.js",
+            "title": "Returns information about disruptions of facilities filtered by parameters.",
+            "description": "Returns information about disruptions of facilities filtered by parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findDisruptions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "findDisruptionByDisruptionNumber": {
+            "main": "./lib/actions/findDisruptionByDisruptionNumber.js",
+            "title": "Returns information about a specific disruption of a facility",
+            "description": "Returns information about a specific disruption of a facility",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findDisruptionByDisruptionNumber.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "findFacilities": {
+            "main": "./lib/actions/findFacilities.js",
+            "title": "Access to public facilities (escalators and elevators) in railway stations",
+            "description": "Access to public facilities (escalators and elevators) in railway stations",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findFacilities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFacilityByEquipmentNumber": {
+            "main": "./lib/actions/getFacilityByEquipmentNumber.js",
+            "title": "Returns the facility identified by its equipmentnumber",
+            "description": "Returns the facility identified by its equipmentnumber",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFacilityByEquipmentNumber.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "findStationByStationNumber": {
+            "main": "./lib/actions/findStationByStationNumber.js",
+            "title": "Returns information about the station and its facilities identified by a stationnumber.",
+            "description": "Returns information about the station and its facilities identified by a stationnumber.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findStationByStationNumber.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

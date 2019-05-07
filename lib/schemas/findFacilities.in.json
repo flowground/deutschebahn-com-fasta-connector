@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "ESCALATOR",
+                    "ELEVATOR"
+                ],
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "default": [
+                "ESCALATOR",
+                "ELEVATOR"
+            ]
+        },
+        "state": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "ACTIVE",
+                    "INACTIVE"
+                ],
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "default": [
+                "ACTIVE",
+                "INACTIVE"
+            ]
+        },
+        "equipmentnumbers": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "format": "int64",
+                "maxItems": 100,
+                "type": "integer"
+            },
+            "uniqueItems": true
+        },
+        "stationnumber": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+        },
+        "area": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "uniqueItems": false
+        }
+    }
+}

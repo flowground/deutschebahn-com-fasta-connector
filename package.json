@@ -1,0 +1,15 @@
+{
+    "name": "deutschebahn-com-fasta-connector",
+    "version": "1.0.0",
+    "description": "A RESTful webservice to retrieve data about the operational state of public elevators and escalators in german railway stations operated by DB Station&Service AG. \nNote: Production and sandbox environments use the same production backend server. ",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
